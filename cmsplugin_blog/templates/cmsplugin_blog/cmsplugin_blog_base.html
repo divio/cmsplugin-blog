@@ -1,5 +1,20 @@
-{% block extrahead %}
-{{ block.super }}
-<link rel="alternate" type="application/rss+xml" title="RSS feed" href="{% if request.LANGUAGE_CODE %}/{{ request.LANGUAGE_CODE }}{% endif %}{% url blog_rss %}" />
-<link rel="alternate" type="application/rss+xml" title="RSS feed (any language)" href="{% if request.LANGUAGE_CODE %}/{{ request.LANGUAGE_CODE }}{% endif %}{% url blog_rss_any %}" />
-{% endblock extrahead %}
+{% extends 'base.html' %}
+
+{% block base_content %}
+<div id="content" class="left">
+	<div id="sidebar">
+		<div class="content">
+			{% block left-col %}{% endblock %}
+		</div>
+	</div>
+	<div id="main">
+		<div class="content">
+			{% block right-col %}{% endblock %}
+		</div>
+	</div>
+</div>
+<div class="clearfix"></div>
+{% endblock %}
+
+
+
